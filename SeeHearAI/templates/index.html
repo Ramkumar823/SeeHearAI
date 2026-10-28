@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131a">
+  <title>SeeHear AI — See the World. Hear What Matters.</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<main class="app-shell">
+  <header class="brand">
+    <div class="brand-mark" aria-hidden="true">◉</div>
+    <div><h1>SeeHear AI</h1><p>See the World. Hear What Matters.</p></div>
+  </header>
+
+  <section class="status-panel" aria-live="polite">
+    <span id="statusDot" class="status-dot"></span>
+    <span id="statusText">Camera is off. Ready when you are.</span>
+  </section>
+
+  <section class="camera-card" aria-label="Camera preview">
+    <video id="video" autoplay muted playsinline aria-label="Live camera view"></video>
+    <canvas id="overlay" aria-hidden="true"></canvas>
+    <div id="cameraPlaceholder" class="camera-placeholder">
+      <div class="camera-icon" aria-hidden="true">▣</div>
+      <p>Your camera preview will appear here</p>
+      <small>Press Start Camera to begin</small>
+    </div>
+  </section>
+
+  <button id="cameraButton" class="primary-button" type="button">START CAMERA</button>
+
+  <section class="controls" aria-label="Accessibility controls">
+    <label class="control-label" for="language">Spoken language / பேச்சு மொழி</label>
+    <select id="language" aria-label="Choose spoken language">
+      <option value="en">English</option>
+      <option value="ta">தமிழ் (Tamil)</option>
+    </select>
+    <div class="button-grid">
+      <button id="voiceButton" class="secondary-button" type="button">🎤 Voice Commands</button>
+      <button id="repeatButton" class="secondary-button" type="button">🔁 Repeat Last Message</button>
+      <button id="stopSpeakingButton" class="secondary-button" type="button">🔇 Stop Speaking</button>
+      <button id="soundButton" class="secondary-button" type="button" aria-pressed="true">🔔 Sound: On</button>
+      <button id="helpButton" class="secondary-button" type="button">❔ Help</button>
+    </div>
+  </section>
+
+  <section class="detections-panel">
+    <h2>Detected objects</h2>
+    <p id="objectsText" aria-live="polite">No objects detected yet.</p>
+  </section>
+
+  
+</main>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
